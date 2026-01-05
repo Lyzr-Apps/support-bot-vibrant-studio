@@ -59,11 +59,11 @@ function TypingIndicator() {
   return (
     <div className="flex items-center gap-1 px-4 py-3">
       <div className="flex gap-1">
-        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-        <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+        <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" />
+        <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
+        <div className="w-2 h-2 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
       </div>
-      <span className="text-sm text-gray-500 ml-2">Agent is typing...</span>
+      <span className="text-sm text-gray-400 ml-2">Agent is typing...</span>
     </div>
   )
 }
@@ -76,7 +76,7 @@ function MessageBubble({ message }: { message: Message }) {
     <div className={cn('flex gap-3 mb-4', isUser ? 'justify-end' : 'justify-start')}>
       {/* Agent Avatar */}
       {!isUser && (
-        <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 mt-1">
+        <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0 mt-1">
           <MessageCircle size={16} className="text-white" />
         </div>
       )}
@@ -87,20 +87,20 @@ function MessageBubble({ message }: { message: Message }) {
           className={cn(
             'rounded-lg px-4 py-3 break-words',
             isUser
-              ? 'bg-blue-500 text-white rounded-br-none'
-              : 'bg-gray-200 text-gray-900 rounded-bl-none'
+              ? 'bg-blue-600 text-white rounded-br-none'
+              : 'bg-gray-700 text-gray-100 rounded-bl-none'
           )}
         >
           <p className="text-sm">{message.content}</p>
         </div>
-        <span className="text-xs text-gray-500 mt-1 px-2">
+        <span className="text-xs text-gray-400 mt-1 px-2">
           {getRelativeTime(message.timestamp)}
         </span>
       </div>
 
       {/* User Avatar */}
       {isUser && (
-        <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 mt-1">
+        <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 mt-1">
           <span className="text-xs font-semibold text-white">U</span>
         </div>
       )}
@@ -111,12 +111,12 @@ function MessageBubble({ message }: { message: Message }) {
 // Component: Quick Reply Chips
 function QuickReplyChips({ onSelect }: { onSelect: (question: string) => void }) {
   return (
-    <div className="flex flex-wrap gap-2 px-6 py-4 border-t border-gray-200">
+    <div className="flex flex-wrap gap-2 px-6 py-4 border-t border-gray-700">
       {SUGGESTED_QUESTIONS.map((question, idx) => (
         <button
           key={idx}
           onClick={() => onSelect(question)}
-          className="px-3 py-2 bg-blue-50 text-blue-700 border border-blue-200 rounded-full text-sm hover:bg-blue-100 transition-colors"
+          className="px-3 py-2 bg-gray-700 text-blue-400 border border-gray-600 rounded-full text-sm hover:bg-gray-600 transition-colors"
         >
           {question}
         </button>
@@ -129,38 +129,38 @@ function QuickReplyChips({ onSelect }: { onSelect: (question: string) => void })
 function WelcomeMessage() {
   return (
     <div className="flex flex-col items-center justify-center flex-1 px-6 py-12 text-center">
-      <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-        <MessageCircle size={32} className="text-blue-500" />
+      <div className="w-16 h-16 rounded-full bg-gray-700 flex items-center justify-center mb-4">
+        <MessageCircle size={32} className="text-blue-400" />
       </div>
-      <h2 className="text-2xl font-bold text-gray-800 mb-2">Welcome to Support</h2>
-      <p className="text-gray-600 mb-6">
+      <h2 className="text-2xl font-bold text-gray-100 mb-2">Welcome to Support</h2>
+      <p className="text-gray-400 mb-6">
         Hi there! How can we help you today? Feel free to ask any questions about our products and services.
       </p>
 
       {/* Suggested Topics */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 w-full max-w-2xl">
-        <div className="p-4 bg-blue-50 rounded-lg border border-blue-200 text-left">
+        <div className="p-4 bg-gray-700 rounded-lg border border-gray-600 text-left">
           <div className="flex items-center gap-2 mb-2">
-            <Home size={18} className="text-blue-600" />
-            <h3 className="font-semibold text-gray-800">Getting Started</h3>
+            <Home size={18} className="text-blue-400" />
+            <h3 className="font-semibold text-gray-100">Getting Started</h3>
           </div>
-          <p className="text-sm text-gray-600">Learn about our basic features and how to get started</p>
+          <p className="text-sm text-gray-400">Learn about our basic features and how to get started</p>
         </div>
 
-        <div className="p-4 bg-blue-50 rounded-lg border border-blue-200 text-left">
+        <div className="p-4 bg-gray-700 rounded-lg border border-gray-600 text-left">
           <div className="flex items-center gap-2 mb-2">
-            <HelpCircle size={18} className="text-blue-600" />
-            <h3 className="font-semibold text-gray-800">FAQs</h3>
+            <HelpCircle size={18} className="text-blue-400" />
+            <h3 className="font-semibold text-gray-100">FAQs</h3>
           </div>
-          <p className="text-sm text-gray-600">Find answers to frequently asked questions</p>
+          <p className="text-sm text-gray-400">Find answers to frequently asked questions</p>
         </div>
 
-        <div className="p-4 bg-blue-50 rounded-lg border border-blue-200 text-left">
+        <div className="p-4 bg-gray-700 rounded-lg border border-gray-600 text-left">
           <div className="flex items-center gap-2 mb-2">
-            <Phone size={18} className="text-blue-600" />
-            <h3 className="font-semibold text-gray-800">Contact Us</h3>
+            <Phone size={18} className="text-blue-400" />
+            <h3 className="font-semibold text-gray-100">Contact Us</h3>
           </div>
-          <p className="text-sm text-gray-600">Get in touch with our support team</p>
+          <p className="text-sm text-gray-400">Get in touch with our support team</p>
         </div>
       </div>
     </div>
@@ -170,20 +170,20 @@ function WelcomeMessage() {
 // Component: Chat Header
 function ChatHeader({ isExpanded, onToggle }: { isExpanded: boolean; onToggle: () => void }) {
   return (
-    <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-4 flex items-center justify-between rounded-t-lg">
+    <div className="bg-gradient-to-r from-gray-800 to-gray-900 text-white px-6 py-4 flex items-center justify-between rounded-t-lg">
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-white bg-opacity-20 flex items-center justify-center">
+        <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
           <MessageCircle size={20} className="text-white" />
         </div>
         <div>
           <h1 className="text-lg font-bold">Customer Support</h1>
-          <p className="text-xs text-blue-100">We're here to help</p>
+          <p className="text-xs text-gray-400">We're here to help</p>
         </div>
       </div>
 
       <button
         onClick={onToggle}
-        className="p-2 hover:bg-blue-700 rounded-lg transition-colors"
+        className="p-2 hover:bg-gray-700 rounded-lg transition-colors"
         aria-label={isExpanded ? 'Minimize' : 'Expand'}
       >
         {isExpanded ? <ChevronDown size={20} /> : <ChevronUp size={20} />}
@@ -307,8 +307,8 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl h-screen md:h-[600px] md:max-h-[600px] bg-white rounded-lg shadow-lg overflow-hidden flex flex-col border border-gray-200">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center p-4">
+      <div className="w-full max-w-2xl h-screen md:h-[600px] md:max-h-[600px] bg-gray-800 rounded-lg shadow-lg overflow-hidden flex flex-col border border-gray-700">
         {/* Header */}
         <ChatHeader isExpanded={isExpanded} onToggle={() => setIsExpanded(!isExpanded)} />
 
@@ -334,15 +334,15 @@ export default function ChatPage() {
             {/* Input Area */}
             <form
               onSubmit={handleSubmit}
-              className="border-t border-gray-200 px-6 py-4 bg-gray-50"
+              className="border-t border-gray-700 px-6 py-4 bg-gray-900"
             >
               {error && (
-                <div className="mb-3 p-3 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-sm text-red-700">{error}</p>
+                <div className="mb-3 p-3 bg-red-900 border border-red-700 rounded-lg">
+                  <p className="text-sm text-red-200">{error}</p>
                   <button
                     type="button"
                     onClick={() => setError(null)}
-                    className="text-xs text-red-600 hover:text-red-700 mt-1 font-medium"
+                    className="text-xs text-red-300 hover:text-red-200 mt-1 font-medium"
                   >
                     Dismiss
                   </button>
@@ -356,7 +356,7 @@ export default function ChatPage() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Type your question..."
-                  className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-gray-800"
+                  className="flex-1 px-4 py-3 border border-gray-600 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 bg-gray-700 text-gray-100 placeholder-gray-400"
                   disabled={isLoading}
                 />
                 <button
@@ -365,7 +365,7 @@ export default function ChatPage() {
                   className={cn(
                     'px-4 py-3 rounded-lg font-medium flex items-center gap-2 transition-colors',
                     isLoading || !input.trim()
-                      ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                      ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
                       : 'bg-blue-600 text-white hover:bg-blue-700'
                   )}
                   aria-label="Send message"
