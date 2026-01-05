@@ -1,0 +1,38 @@
+{
+  "agent_name": "Customer Support Agent",
+  "agent_id": "695bc26e457887dd859fb19f",
+  "agent_purpose": "assistant",
+  "description": "Customer support agent that answers customer questions using knowledge base and provides assistance with product/service inquiries",
+  "response_schema": {
+    "status": "string (success|error)",
+    "result": {
+      "response": "string",
+      "action_taken": "string (optional)",
+      "data": "object (optional, any structured data)",
+      "suggestions": [
+        "string (optional)"
+      ]
+    },
+    "metadata": {
+      "agent_name": "string",
+      "timestamp": "string (ISO)"
+    }
+  },
+  "example_response": {
+    "status": "success",
+    "result": {
+      "response": "I've completed the task you requested",
+      "action_taken": "Processed the input and generated output",
+      "data": {
+        "key": "value"
+      },
+      "suggestions": [
+        "You might also want to try X"
+      ]
+    },
+    "metadata": {
+      "agent_name": "Customer Support Agent",
+      "timestamp": "2025-01-15T10:30:00Z"
+    }
+  }
+}

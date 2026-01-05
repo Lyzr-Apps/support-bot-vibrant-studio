@@ -1,0 +1,69 @@
+{
+  "workflow_name": "Customer Support AI Agent System",
+  "version": "1.0",
+  "created_date": "2026-01-05",
+  "status": "active",
+  "nodes": [
+    {
+      "id": "user_query_input",
+      "type": "Input",
+      "label": "User Query",
+      "nodeCategory": "input",
+      "position": {
+        "x": 100,
+        "y": 200
+      }
+    },
+    {
+      "id": "customer_support_agent",
+      "type": "Agent",
+      "label": "Customer Support Agent",
+      "nodeCategory": "agent",
+      "agent_id": "695bc26e457887dd859fb19f",
+      "position": {
+        "x": 400,
+        "y": 200
+      },
+      "config": {
+        "name": "Customer Support Agent",
+        "description": "Answers customer queries by searching website knowledge base, maintains conversational context, provides helpful and accurate responses based on official website content",
+        "provider_id": "OpenAI",
+        "model": "gpt-4.1",
+        "temperature": 0.3,
+        "top_p": 1,
+        "has_knowledge_base": true,
+        "rag_id": "695bc269bb92cd00acf84678",
+        "rag_name": "websiteknowledgebasemyay"
+      }
+    },
+    {
+      "id": "agent_response_output",
+      "type": "Output",
+      "label": "Agent Response",
+      "nodeCategory": "end",
+      "position": {
+        "x": 700,
+        "y": 200
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "user_query_input",
+      "target": "customer_support_agent"
+    },
+    {
+      "source": "customer_support_agent",
+      "target": "agent_response_output"
+    }
+  ],
+  "knowledge_bases": [
+    {
+      "kb_name": "Website Knowledge Base",
+      "rag_id": "695bc269bb92cd00acf84678",
+      "rag_name": "websiteknowledgebasemyay",
+      "description": "Customer support knowledge base trained on website content",
+      "attached_to_agent": "Customer Support Agent"
+    }
+  ]
+}

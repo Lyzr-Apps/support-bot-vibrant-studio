@@ -1,0 +1,19 @@
+{
+  "agent_name": "Customer Support Agent",
+  "agent_id": "695bc26e457887dd859fb19f",
+  "test_message": "What features does your product have?",
+  "expected_purpose": "assistant",
+  "timestamp": "2026-01-05T13:55:15.215919",
+  "is_valid_json": true,
+  "validation_errors": [
+    "Missing 'result' field",
+    "Missing 'metadata' field (optional but recommended)"
+  ],
+  "actual_response": {
+    "status": "error",
+    "message": "I'm sorry, but I do not have specific feature information available for our product at this time. For detailed feature information, please contact our support team directly.",
+    "timestamp": "2024-06-08T00:06:40Z",
+    "context": ""
+  },
+  "raw_response": "{\n  \"status\": \"error\",\n  \"message\": \"I'm sorry, but I do not have specific feature information available for our product at this time. For detailed feature information, please contact our support team directly.\",\n  \"timestamp\": \"2024-06-08T00:06:40Z\",\n  \"context\": \"\"\n}"
+}
